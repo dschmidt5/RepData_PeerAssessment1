@@ -3,16 +3,19 @@ title: "Reproducible Research: Peer Assessment 1"
 output:
   html_document:
     keep_md: true
+    
 ---
+
 ## Loading and preprocessing the data
 ##### 1. Load the data (i.e. read.csv())
 
 ```{r}
 echo = TRUE
+knitr::opts_chunk$set(fig.path='figure/')
 activityData <- read.csv('activity.csv')
 ```
 
-```{r, echo = FALSE}
+```{r, results = 'hide'}
 library(ggplot2)
 ```
 ##### 2. Process/transform the data (if necessary) into a format suitable for your analysis

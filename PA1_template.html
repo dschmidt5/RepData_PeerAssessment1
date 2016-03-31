@@ -117,7 +117,9 @@ $(document).ready(function () {
 <div id="load-the-data-i.e.read.csv" class="section level5">
 <h5>1. Load the data (i.e. read.csv())</h5>
 <pre class="r"><code>echo = TRUE
+knitr::opts_chunk$set(fig.path='figure/')
 activityData &lt;- read.csv('activity.csv')</code></pre>
+<pre class="r"><code>library(ggplot2)</code></pre>
 <pre><code>## Warning: package 'ggplot2' was built under R version 3.2.4</code></pre>
 </div>
 <div id="processtransform-the-data-if-necessary-into-a-format-suitable-for-your-analysis" class="section level5">

@@ -1,13 +1,19 @@
 # Reproducible Research: Peer Assessment 1
+
 ## Loading and preprocessing the data
 ##### 1. Load the data (i.e. read.csv())
 
 
 ```r
 echo = TRUE
+knitr::opts_chunk$set(fig.path='figure/')
 activityData <- read.csv('activity.csv')
 ```
 
+
+```r
+library(ggplot2)
+```
 
 ```
 ## Warning: package 'ggplot2' was built under R version 3.2.4
@@ -25,7 +31,7 @@ aggStepsByDay <- tapply(activityData$steps, activityData$date, sum, na.rm=TRUE)
 
 ##### 2. Make a histogram of the total number of steps taken each day
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)
+![](figure/unnamed-chunk-4-1.png)
 
 ##### 3. Calculate and report the mean and median of the total number of steps taken per day
 
@@ -56,7 +62,7 @@ stepsByDayMedian
 avgStepsPerInterval <- aggregate(x = list(AvgSteps=activityData$steps), by = list(Interval = activityData$interval), FUN = mean, na.rm = TRUE)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-7-1.png)
+![](figure/unnamed-chunk-7-1.png)
 
 ##### 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -102,7 +108,7 @@ for (i in 1:nrow(completeData)) {
 aggStepsByDayNA <- tapply(completeData$steps, completeData$date, sum, na.rm=TRUE)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-12-1.png)
+![](figure/unnamed-chunk-12-1.png)
 
 
 ```r
@@ -140,4 +146,4 @@ completeData$dayType <-  ifelse(as.POSIXlt(completeData$date)$wday %in% c(0,6), 
 avgCompleteData <- aggregate(steps ~ interval + dayType, data=completeData, mean)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-16-1.png)
+![](figure/unnamed-chunk-16-1.png)
