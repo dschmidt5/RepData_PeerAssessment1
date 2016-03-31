@@ -7,6 +7,9 @@
 ```{r}
 echo = TRUE
 activityData <- read.csv('activity.csv')
+```
+
+```{r, echo = FALSE}
 library(ggplot2)
 ```
 ##### 2. Process/transform the data (if necessary) into a format suitable for your analysis
